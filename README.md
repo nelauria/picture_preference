@@ -1,3 +1,2 @@
-# movie_trends
-learning html by building a website that shows trending movies and tv shows from Twitter.
-also improving machine learning by performing sentiment analysis on the movies and shows
+# movie_taste
+Learn more about your film taste with data from Letterboxd! Input a few of your favorite films and see how your film taste is characterized amongst the userbase of Letterboxd.
