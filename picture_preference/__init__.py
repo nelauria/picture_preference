@@ -28,4 +28,11 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, world!'
 
+    from . import film_search
+    app.register_blueprint(film_search.bp)
+    app.add_url_rule('/', endpoint='home')
+
+    from . import output
+    app.register_blueprint(output.bp)
+
     return app
