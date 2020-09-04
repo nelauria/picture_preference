@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Results!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Check how popular your film is with Letterboxd users!</p>
+<div class="popularity">{{ g.title }} is ranked #{{ g.rank }} among Letterboxd users.</div>
+<div class="obscurity">{{ g.title }} is more obscure than {{ "%.3g"|format(g.obscurity) }}% of films on Letterboxd.</div>
+<hr>
+<a href="{{ url_for('home') }}">Input another film</a>
+{% endblock %}
