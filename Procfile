@@ -1,1 +1,1 @@
-web: gunicorn src.app:picture_preference
+web: gunicorn picture_preference:app
