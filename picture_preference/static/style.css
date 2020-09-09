@@ -16,7 +16,7 @@ a:link { color: #9ab; }
 a:visited { color: #40bcf4; }
 
 nav {
-    display: flex; align-items: center; padding: 2rem;
+    display: flex; align-items: center; padding: 1.5rem 1rem 1.5rem 1rem;
     width: 90%; height: 12.5%; margin: 0;
 }
 nav h1 { flex: auto; margin: 0; }
@@ -34,8 +34,8 @@ nav h1 { flex: auto; margin: 0; }
     display: flex; justify-content: center; margin: auto;
 }
 .stats > div {
-    width: 30%; height: 40%; background: #adedff; padding: 1rem 0.5rem 1rem 0.5rem;
-    margin: 20px; vertical-align: middle;
+    width: 30%; height: 50%; background: #adedff; padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 10px 20px 10px 20px; vertical-align: middle;
 }
 .stats h1 { font-size: 2.5vw }
 
