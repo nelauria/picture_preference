@@ -31,7 +31,7 @@ nav h1 { flex: auto; margin: 0; }
 
 .stats {
     background: inherit; padding: 1rem; color: #14181c; text-align: center;
-    display: flex; flex-direction: column; margin: auto;
+    display: flex; flex-direction: column; justify-content: center; margin: auto;
 }
 .stats > div {
     width: 80%; height: 80%; background: #adedff; padding: 1.75rem 0.25rem 0.5rem 0.5rem;
