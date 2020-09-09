@@ -40,7 +40,7 @@ nav h1 { flex: auto; margin: 0; }
 .stats h1 { font-size: 4.75vw }
 
 footer {
-    width: 90%; height: 10%; background: #14181c;
+    width: 90%; height: 10%; background: #14181c; padding: 0.5rem;
 }
 footer ul { list-style: none; }
 footer .github-logo { width: 8vw; height: auto; }
