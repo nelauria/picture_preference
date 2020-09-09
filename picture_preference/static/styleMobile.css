@@ -10,7 +10,7 @@ html { color: #f0f1f2; font-family: 'Roboto'; font-size: 3.5vw}
 header { font-size: 3.5vw; width: 90%; }
 header h1 { font-size: 5.25vw }
 
-body { background: #14181c; width: 90%; height: 80%; }
+body { background: #14181c; width: 95%; height: 80%; }
 
 a:link { color: #9ab; }
 a:visited { color: #40bcf4; }
