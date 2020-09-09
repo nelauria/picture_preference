@@ -16,13 +16,13 @@ a:link { color: #9ab; }
 a:visited { color: #40bcf4; }
 
 nav {
-    display: flex; align-items: center; padding: 0;
-    width: 100%; height: 12.5%; margin: 0;
+    display: flex; align-items: center; padding: 2rem;
+    width: 90%; height: 12.5%; margin: 0;
 }
 nav h1 { flex: auto; margin: 0; }
 
 .content {
-    background: #1e252c; height: 90%; padding: 0;
+    background: #1e252c; height: 90%; padding: 1rem;
 }
 .content h2 { font-size: 1.5vw}
 .content form {
@@ -40,7 +40,7 @@ nav h1 { flex: auto; margin: 0; }
 .stats h1 { font-size: 2.5vw }
 
 footer {
-    width: 100%; height: 10%; background: #14181c; margin: 0; padding: 0; 
+    width: 100%; height: 10%; background: #14181c; margin: 0; padding: 0;
 }
 footer ul { list-style: none; }
 footer .github-logo { width: 2vw; height: auto; }
