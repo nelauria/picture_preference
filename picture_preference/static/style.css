@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
 html { color: #f0f1f2; font-family: 'Roboto'; }
 
 body { background: #14181c; }
@@ -8,31 +13,31 @@ a:link { color: #9ab; }
 a:visited { color: #40bcf4; }
 
 nav {
-display: flex; align-items: center; padding: 0 0.5rem;
-width: auto; height: 75px;
+    display: flex; align-items: center; padding: 0 0.5rem;
+    width: auto; height: 75px;
 }
 nav h1 { flex: auto; margin: 0; }
 
 .content {
-background: #1e252c; height: 500px; padding: 1rem;
+    background: #1e252c; height: 500px; padding: 1rem;
 }
 .content h2 { font-size: 1.25rem}
 .content form {
-margin: 1em 0;
+    margin: 1em 0;
 }
 
 .stats {
-background: inherit; padding: 1rem; color: #14181c; text-align: center;
-display: flex; margin: auto;
+    background: inherit; padding: 1rem; color: #14181c; text-align: center;
+    display: flex; margin: auto;
 }
 .stats > div {
-width: 250px; height: 200px; background: #adedff; padding: 1.75rem 0.25rem 0.5rem 0.5rem;
-margin: 10px; vertical-align: middle;
+    width: 250px; height: 250px; background: #adedff; padding: 1.75rem 0.25rem 0.5rem 0.5rem;
+    margin: 10px; vertical-align: middle;
 }
 .stats h1 { font-size: 3rem }
 
 footer {
-width: 100%; height: 20px; background: #14181c;
+    width: 100%; height: 20px; background: #14181c;
 }
 footer ul { list-style: none; }
 
