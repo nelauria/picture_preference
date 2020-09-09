@@ -7,16 +7,16 @@
 
 html { color: #f0f1f2; font-family: 'Roboto'; font-size: 3.5vw}
 
-header { font-size: 3.5vw; width: 100%; height: 10%; margin: 0; }
+header { font-size: 3.5vw; width: 100%; height: 10%; margin: 0; padding: 0; }
 header h1 { font-size: 5.25vw }
 
-body { background: #14181c; width: 100%; height: 80%; margin: 0; }
+body { background: #14181c; width: 100%; height: 80%; margin: 0; padding: 0; }
 
 a:link { color: #9ab; }
 a:visited { color: #40bcf4; }
 
 nav {
-    display: flex; align-items: center; padding: 2vw;
+    display: flex; align-items: center; padding: 0;
     width: 100%; height: 12.5%; margin: 0;
 }
 nav h1 { flex: auto; margin: 0; }
@@ -34,13 +34,13 @@ nav h1 { flex: auto; margin: 0; }
     display: flex; flex-direction: column; justify-content: center; margin: auto;
 }
 .stats > div {
-    width: 80%; height: 80%; background: #adedff; padding: 1.25rem 0.75rem 0.5rem 0.5rem;
+    width: 80%; height: 80%; background: #adedff; padding: 1rem 0.5rem 1rem 0.5rem;
     margin: 10px; vertical-align: middle;
 }
 .stats h1 { font-size: 4.75vw }
 
 footer {
-    width: 100%; height: 10%; background: #14181c; padding: 0.5rem; margin: 0;
+    width: 100%; height: 10%; background: #14181c; padding: 0; margin: 0;
 }
 footer ul { list-style: none; }
 footer .github-logo { width: 8vw; height: auto; }
