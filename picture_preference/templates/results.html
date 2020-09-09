@@ -5,9 +5,33 @@
 {% endblock %}
 
 {% block content %}
-<p>Check how popular your film is with Letterboxd users!</p>
-<div class="popularity">{{ g.title }} is ranked #{{ g.rank }} among Letterboxd users.</div>
-<div class="obscurity">{{ g.title }} is more obscure than {{ "%.3g"|format(g.obscurity) }}% of films on Letterboxd.</div>
+<h2>Popularity Stats:</h2>
+<div class="stats">
+    <div class="rank">
+        {{ g.title }} is ranked
+        <h1>#{{ g.rank }}</h1>
+        among Letterboxd users.
+    </div>
+    <div class="obscurity">
+        <h1>{{ "%.3g"|format(g.obscurity) }}%</h1>
+        {{ g.title }} is more obscure than {{ "%.3g"|format(g.obscurity) }}% of 541,958 films on Letterboxd.
+</div>
+</div>
+<div class="roasts">
+    {% if g.obscurity <= 0.013 %}
+        <p id="basic">You basic bitch.</p>
+    {% elif g.obscurity > 0.013 and g.obscurity <= 0.053 %}
+        <p id="hipster">You're a basic bitch, but you pretend to be a hipster to look marginally cooler and more artsy
+            than your friends.</p>
+    {% elif g.obscurity > 0.053 and g.obscurity <= 0.18 %}
+        <p id="youtuber">Oh, tell me more about your favorite film YouTuber who you get all your hot takes from!</p>
+    {% elif g.obscurity > 0.18 and g.obscurity <= 0.5 %}
+        <p id="artsy">Oh, what's that? You're a film student? And you're making a short film inspired by a
+            long-forgotten niche genre? Woww, so coooool!!</p>
+    {% else %}
+        <p id="obscure">Just because only 3 people have heard of a film doesn't mean it's cool, dude, chill.</p>
+    {% endif %}
+</div>
 <hr>
 <a href="{{ url_for('home') }}">Input another film</a>
 {% endblock %}
