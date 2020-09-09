@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+html { color: #f0f1f2; font-family: 'Roboto'; font-size: 2.5vw}
+
+header { font-size: 2.5vw; }
+header h1 { font-size: 4.5vw }
+
+body { background: #14181c; height: 100%; }
+
+a:link { color: #9ab; }
+a:visited { color: #40bcf4; }
+
+nav {
+    display: flex; align-items: center; padding: 2vw;
+    width: 95%; height: 12.5%;
+}
+nav h1 { flex: auto; margin: 0; }
+
+.content {
+    background: #1e252c; height: 90%; padding: 1rem;
+}
+.content h2 { font-size: 1.5vw}
+.content form {
+    margin: 1em 0; width: 20%; height: auto;
+}
+
+.stats {
+    background: inherit; padding: 1rem; color: #14181c; text-align: center;
+    display: flex; flex-direction: column; margin: auto;
+}
+.stats > div {
+    width: 30%; height: 30%; background: #adedff; padding: 1.75rem 0.25rem 0.5rem 0.5rem;
+    margin: 10px; vertical-align: middle;
+}
+.stats h1 { font-size: 2.5vw }
+
+footer {
+    width: 100%; height: 10%; background: #14181c;
+}
+footer ul { list-style: none; }
+footer .github-logo { width: 4vw; height: auto; }
+
