@@ -2,12 +2,12 @@
 
 {% block header %}
     <h1>{% block title %}Input a film!{% endblock %}</h1>
-    <p>Search the title of your favorite movie, or a random one that's on your mind, and this
-        website will tell you how it ranks among the userbase of Letterboxd, a social media site
-        based around film discussion and discovery.</p>
 {% endblock %}
 
 {% block content %}
+    <p>Search the title of your favorite movie, or a random one that's on your mind, and this
+        website will tell you how it ranks among the userbase of Letterboxd, a social media site
+        based around film discussion and discovery.</p>
     <form method="post">
         <h2><label for="film">Film title:</label></h2>
         <input name="film" id="film" required>
