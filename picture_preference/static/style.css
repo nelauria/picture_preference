@@ -35,7 +35,7 @@ nav h1 { flex: auto; margin: 0; }
 }
 .stats > div {
     width: 30%; height: 50%; padding: 1rem 0.5rem 1rem 0.5rem;
-    margin: 10px 20px 10px 20px; vertical-align: middle;
+    margin: 10px 20px 10px 20px; vertical-align: middle; border-radius: 1rem;
 }
 .stats h1 { font-size: 2.5vw }
 .rank { background: #adedff; }
