@@ -20,12 +20,12 @@
 </div>
 <div class="roasts">
     {% if g.obscurity <= 0.013 %}
-        <p id="basic">You basic bitch.</p>
+        <p id="basic">C'mon, this film is so basic!! Expand your film taste a little bit.</p>
     {% elif g.obscurity > 0.013 and g.obscurity <= 0.053 %}
-        <p id="hipster">You're a basic bitch, but you pretend to be a hipster to look marginally cooler and more artsy
-            than your friends.</p>
+        <p id="hipster">I get it, you want to look cool and artsy to impress your friends, but this movie
+            isn't all that obscure. Find some real weird films and come back later.</p>
     {% elif g.obscurity > 0.053 and g.obscurity <= 0.18 %}
-        <p id="youtuber">Oh, tell me more about your favorite film YouTuber who you get all your hot takes from!</p>
+        <p id="youtuber">Oh, tell me more about the film YouTuber you get all your hot takes from!</p>
     {% elif g.obscurity > 0.18 and g.obscurity <= 0.5 %}
         <p id="artsy">Oh, what's that? You're a film student? And you're making a short film inspired by a
             long-forgotten niche genre? Woww, so coooool!!</p>
