@@ -34,10 +34,12 @@ nav h1 { flex: auto; margin: 0; }
     display: flex; justify-content: center; margin: auto;
 }
 .stats > div {
-    width: 30%; height: 50%; background: #adedff; padding: 1rem 0.5rem 1rem 0.5rem;
+    width: 30%; height: 50%; padding: 1rem 0.5rem 1rem 0.5rem;
     margin: 10px 20px 10px 20px; vertical-align: middle;
 }
 .stats h1 { font-size: 2.5vw }
+.rank { background: #adedff; }
+.obscurity { background: #ffb15e }
 
 footer {
     width: 100%; height: 10%; background: #14181c; margin: 0; padding: 0;
