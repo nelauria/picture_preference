@@ -3,10 +3,12 @@
 <head>
     <title>Picture Preference - {% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <link rel="stylesheet" media="screen and (max-width: 450px)"
           href="{{ url_for('static', filename='styleMobile.css') }}">
     <link rel="stylesheet" media="screen and (min-width: 451px)"
           href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='tmdb_api.js') }}"></script>
 </head>
 <body>
     <nav>

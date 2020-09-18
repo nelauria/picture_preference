@@ -27,6 +27,12 @@ nav h1 { flex: auto; margin: 0; }
 .content form {
     margin: 1em 0; width: 20%; height: auto;
 }
+.film-list ul {
+
+}
+.film-list li {
+
+}
 
 .stats {
     background: inherit; padding: 1rem; color: #14181c; text-align: center;
