@@ -12,12 +12,13 @@ function tmdb_search(apiKey) {
     films = ul.getElementsByTagName("button");
     images = ul.getElementsByTagName("img");
     for (let i=0; i < 5; i++) {
-    	titles.push(searchResponse.results[i].title.italics()
-        	+ " (" + searchResponse.results[i].release_date.slice(0,4) + ")");
+        let result = searchResponse.results[i]
+    	titles.push(result.title.italics()
+        	+ " (" + result.release_date.slice(0,4) + ")");
         films[i].innerHTML = titles[i];
+        films[i].value = result.title[i].replace(" ","-").toLowerCase() + "-" + result.release_date.slice(0,4)
         images[i].src = "https://image.tmdb.org/t/p/w92/"+searchResponse.results[i].poster_path;
     }
     div = document.getElementById("search-results");
     div.style.display = "block";
-//    document.getElementById("stuff").innerHTML = "changed";
 }
