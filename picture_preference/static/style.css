@@ -7,15 +7,15 @@
 
 html { color: #f0f1f2; font-family: 'Roboto'; font-size: 1.25vw; }
 
-header { font-size: 1.25vw; width: 100%; height: 15%; margin: 0; padding: 0; }
-header h1 { font-size: 2.25vw }
+header { font-size: 1.25vw; width: 100%; margin: 0; padding: 0; }
+header h1 { font-size: 2rem; padding: 0; margin: 0.75vw 0 1vw 0; }
 
 body { background: #14181c; width: 100%; height: 75%; margin: 0; padding: 0; }
 
 a { color: #40bcf4; }
 
 nav {
-    display: flex; align-items: center; padding: 1.5rem 1rem 1.5rem 1rem;
+    display: flex; align-items: center; padding: 1.25rem 1rem 1.25rem 1rem;
     width: 90%; height: 12.5%; margin: 0;
 }
 nav h1 { flex: auto; margin: 0; }
@@ -23,16 +23,22 @@ nav h1 { flex: auto; margin: 0; }
 .content {
     background: #1e252c; height: 90%; padding: 1rem;
 }
-.content h2 { font-size: 1.5vw}
-.content form {
-    margin: 1em 0; width: 20%; height: auto;
+.content h2 { font-size: 1.5vw; display: inline-block; vertical-align: middle; margin-right: 1vw; }
+.content input {
+    padding: 0.25em; width: 20%; height: auto; display: inline-block; vertical-align: middle; font-size: inherit;
+    border-radius: 1rem; color: #14181c; 
 }
-.film-list ul {
+.content input:focus { outline-width: 0; }
+.content h3 { font-size: 1.2vw; }
 
+.search-results { display: none; position: relative; margin: 0 0 0 0; }
+.search-results ul { list-style: none; padding: 0.2vw 0 0.2vw 0; }
+.search-results li { margin: 1vw 0.75vw 1vw 0.75vw; }
+.search-results button {
+    border: none; background-color: inherit; padding: 1vw 0.75vw; color: inherit; font-size: 1.5vw; cursor: pointer;
+    display: inline-block; vertical-align: middle;
 }
-.film-list li {
-
-}
+.search-results img { display: inline-block; margin: 0 1vw 0 2vw; vertical-align: middle; }
 
 .stats {
     background: inherit; padding: 1rem; color: #14181c; text-align: center;
@@ -45,6 +51,8 @@ nav h1 { flex: auto; margin: 0; }
 .stats h1 { font-size: 2.5vw }
 .rank { background: #adedff; }
 .obscurity { background: #ffb15e }
+
+#dev-statement { font-size: 1vw; }
 
 footer {
     width: 100%; height: 10%; background: #14181c; margin: 0; padding: 0;

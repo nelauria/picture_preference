@@ -5,23 +5,43 @@
 {% endblock %}
 
 {% block content %}
-    <p>Search the title of your favorite movie, or a random one that's on your mind, and this
+    <p id="explain">Search the title of your favorite movie, or a random one that's on your mind, and this
         website will tell you how it ranks among the userbase of Letterboxd, a social media site
         based around film discussion and discovery.</p>
-    <h2><label for="film">Film title:</label></h2>
-    <input type="text" name="film" id="film" required>
-    <button id="searchButton" onclick="tmdb_search()">Search!</button>
-    <p id="stuff">Test stuff</p>
-    <div class="film-list" style="display: none">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <div class="search-container">
+        <h2><label for="userInput">Film title:</label></h2>
+        <input type="text" name="userInput" id="userInput" onkeyup="tmdb_search('{{ TMDB_KEY }}')">
+        <div class="search-results" id="search-results">
+            <h3>Select a film:</h3>
+            <ul id="film-list">
+                <div class="list-item">
+                    <img>
+                    <button></button>
+                </div>
+                <hr>
+                <div class="list-item">
+                    <img>
+                    <button></button>
+                </div>
+                <hr>
+                <div class="list-item">
+                    <img>
+                    <button></button>
+                </div>
+                <hr>
+                <div class="list-item">
+                    <img>
+                    <button></button>
+                </div>
+                <hr>
+                <div class="list-item">
+                    <img>
+                    <button></button>
+                </div>
+            </ul>
+        </div>
     </div>
     <hr>
-    <p>This app is still in development.</p>
+    <p id="dev-statement">This app is still in development.</p>
 {% endblock %}
 

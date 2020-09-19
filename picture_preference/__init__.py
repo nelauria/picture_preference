@@ -6,7 +6,6 @@ def create_app(test_config=None):
     # create & configure app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'picture_preference.sqlite'),
     )
 
@@ -23,17 +22,14 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # home page, to input a movie title
-    @app.route('/hello')
-    def hello():
-        return 'Hello, world!'
-
     from . import film_search
     app.register_blueprint(film_search.bp)
     app.add_url_rule('/', endpoint='home')
 
     from . import output
     app.register_blueprint(output.bp)
+
+    TMDB_KEY=app.config["TMDB_KEY"]
 
     return app
 

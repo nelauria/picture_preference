@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, session, redirect, render_template, request, url_for
+    Blueprint, flash, session, redirect, render_template, request, url_for, current_app
 )
 
 
@@ -19,4 +19,4 @@ def film_search():
             flash(error)
         else:
             return redirect(url_for('output.results'))
-    return render_template('film_search.html')
+    return render_template('film_search.html',TMDB_KEY=current_app.config["TMDB_KEY"])
