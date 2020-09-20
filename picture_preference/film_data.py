@@ -1,7 +1,7 @@
 from picture_preference import web_scrape
 
 
-def check_popularity(query):
+def check_popularity(href):
     main = 'https://letterboxd.com'
     url = web_scrape.search_film(query)
     href = url.replace(main, '')

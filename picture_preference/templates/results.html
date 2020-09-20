@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+<!--<p>Film: {{ session["film"] }}</p>-->
+<!--<p>Rank: {{ g.rank }}</p>-->
+
 <h2>Popularity Stats:</h2>
 <div class="stats">
     <div class="rank">
@@ -17,21 +20,6 @@
         <h1>{{ "%.3g"|format(g.obscurity) }}%</h1>
         of 541,958 films on Letterboxd.
 </div>
-</div>
-<div class="roasts">
-    {% if g.obscurity <= 0.013 %}
-        <p id="basic">C'mon, this film is so basic!! Expand your film taste a little bit.</p>
-    {% elif g.obscurity > 0.013 and g.obscurity <= 0.053 %}
-        <p id="hipster">I get it, you want to look cool and artsy to impress your friends, but this movie
-            isn't all that obscure. Find some real weird films and come back later.</p>
-    {% elif g.obscurity > 0.053 and g.obscurity <= 0.18 %}
-        <p id="youtuber">Oh, tell me more about the film YouTuber you get all your hot takes from!</p>
-    {% elif g.obscurity > 0.18 and g.obscurity <= 0.5 %}
-        <p id="artsy">Oh, what's that? You're a film student? And you're making a short film inspired by a
-            long-forgotten niche genre?</p>
-    {% else %}
-        <p id="obscure">Just because only 3 people have heard of a film doesn't mean it's cool, dude, chill.</p>
-    {% endif %}
 </div>
 <hr>
 <a href="{{ url_for('home') }}">Input another film</a>

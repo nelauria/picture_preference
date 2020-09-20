@@ -9,7 +9,8 @@ bp = Blueprint('film_search',__name__)
 @bp.route('/',methods=('GET','POST'))
 def film_search():
     if request.method == 'POST':
-        session['film'] = request.form['film']
+        session["film"] = request.form["film"]
+        # print(session["film"])
         error = None
 
         if not session['film']:
