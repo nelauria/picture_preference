@@ -42,8 +42,8 @@ def create_app(test_config=None):
 
     with app.app_context():
         from . import film_db
-        # if film_db.FilmModel.__table__.exists(db.engine):
-        film_db.FilmModel.__table__.drop(db.engine)
+        if film_db.FilmModel.__table__.exists(db.engine):
+            film_db.FilmModel.__table__.drop(db.engine)
         film_db.db.create_all()
 
         from . import film_search
