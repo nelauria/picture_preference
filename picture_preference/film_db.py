@@ -1,5 +1,6 @@
 from . import db
 from picture_preference import web_scrape
+from flask_sqlalchemy import event
 
 
 class FilmModel(db.Model):
@@ -19,6 +20,7 @@ class FilmModel(db.Model):
         return f"<Film {self.title}"
 
 
+@event.listens_for(FilmModel.__table__, "after_create")
 def build_top(chapters, chapter_length):
     for chapter in range(chapters):
         start = 1+chapter*chapter_length
