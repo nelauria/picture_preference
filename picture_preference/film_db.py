@@ -1,7 +1,9 @@
-from . import db
+# from . import db
 from picture_preference import web_scrape
-from flask_sqlalchemy import event
+from flask_sqlalchemy import SQLAlchemy, event
 from flask import current_app
+
+db = SQLAlchemy()
 
 
 class FilmModel(db.Model):
