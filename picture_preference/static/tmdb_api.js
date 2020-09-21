@@ -17,7 +17,11 @@ function tmdb_search(apiKey) {
         	+ " (" + result.release_date.slice(0,4) + ")");
         films[i].innerHTML = titles[i];
         films[i].value = result.title + " (" + result.release_date.slice(0,4) + ")"
-        images[i].src = "https://image.tmdb.org/t/p/w92/"+searchResponse.results[i].poster_path;
+        if (searchResponse.results[i].poster_path) {
+            images[i].src = "https://image.tmdb.org/t/p/w92/"+searchResponse.results[i].poster_path;
+        } else {
+            images[i].src = "/static/photo-placeholder-icon-17.jpg"
+        }
     }
 //    document.getElementById("test").innerHTML = result.title + " (" + result.release_date.slice(0,4) + ")"
     div = document.getElementById("search-results");

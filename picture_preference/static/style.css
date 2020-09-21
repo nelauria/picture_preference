@@ -41,7 +41,7 @@ nav h1 { flex: auto; margin: 0; }
     border: none; background-color: inherit; padding: 1vw 0.75vw; color: inherit; font-size: 1.5vw; cursor: pointer;
     display: inline-block; vertical-align: middle;
 }
-.search-results img { display: inline-block; margin: 0 1vw 0 2vw; vertical-align: middle; }
+.search-results img { display: inline-block; width: 4.5vw; height: auto; margin: 0 1vw 0 2vw; vertical-align: middle; }
 
 .stats {
     background: inherit; padding: 1rem; color: #14181c; text-align: center;
