@@ -25,6 +25,7 @@ class FilmModel(db.Model):
 
 @event.listens_for(FilmModel.__table__, 'after_create')
 def build_top(*args, **kwargs):
+    FilmModel.query.delete()
     chapters = 2
     chapter_length = 15
     for chapter in range(chapters):
