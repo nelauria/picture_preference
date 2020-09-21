@@ -21,7 +21,7 @@ class FilmModel(db.Model):
         return f"<Film {self.title}"
 
 
-# @event.listens_for(FilmModel.__table__, 'after_create')
+@event.listens_for(FilmModel.__table__, 'after_create')
 def build_top(*args, **kwargs):
     chapters = 2
     chapter_length = 15
