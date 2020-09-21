@@ -30,6 +30,7 @@ def create_app(test_config=None):
     )
     conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
 
+    db.init_app(app)
     migrate.init_app(app, db)
 
     # ensure instance folder exists
@@ -37,8 +38,6 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-
-    db.init_app(app)
 
     with app.app_context():
         from . import film_db
