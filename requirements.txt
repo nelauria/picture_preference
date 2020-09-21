@@ -1,8 +1,8 @@
 bs4
-flask
-flask_sqlalchemy
-flask_migrate
-psycopg2
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
 requests
+psycopg2-binary
 gunicorn
 click
