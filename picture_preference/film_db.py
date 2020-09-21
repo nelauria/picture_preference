@@ -22,7 +22,7 @@ class FilmModel(db.Model):
 
 
 # @event.listens_for(FilmModel.__table__, "after_create")
-@current_app.before_first_request
+@event.listen(FilmModel.__table__, 'after_create')
 def build_top(*args, **kwargs):
     chapters = 1
     chapter_length = 15
@@ -37,5 +37,5 @@ def build_top(*args, **kwargs):
     print(f"Top {72*(chapters*chapter_length)} films initialized.")
 
 
-event.listen(FilmModel.__table__, 'after_create', build_top(chapters=1, chapter_length=15))
+# event.listen(FilmModel.__table__, 'after_create', build_top(chapters=1, chapter_length=15))
 
