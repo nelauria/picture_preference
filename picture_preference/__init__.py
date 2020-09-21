@@ -45,8 +45,6 @@ def create_app(test_config=None):
         # if film_db.FilmModel.__table__.exists(db.engine):
         film_db.FilmModel.__table__.drop(db.engine)
         film_db.db.create_all()
-        # film_db.build_top(chapters=1, chapter_length=15)
-        # event.listen(db.FilmModel.__table__, 'after_create', build_top(chapters=1,chapter_length=15))
 
         from . import film_search
         app.register_blueprint(film_search.bp)
@@ -56,8 +54,3 @@ def create_app(test_config=None):
         app.register_blueprint(output.bp)
 
     return app
-
-
-# if __name__ == '__main__':
-#     app = create_app()
-#     app.run()
