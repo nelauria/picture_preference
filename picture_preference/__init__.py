@@ -22,7 +22,11 @@ def create_app(test_config=None):
     app.config.update(
         # SQLALCHEMY_DATABASE_URI="postgresql://postgres:" + app.config["POSTGRES_PASSWORD"]
         #                         + "@localhost:5432/picture_preference",
-        DATABASE_URL=os.environ['DATABASE_URL']
+        DATABASE_URL=os.environ['DATABASE_URL'],
+        SQLALCHEMY_DATABASE_URI=os.environ['SQLALCHEMY_DATABASE_URI'],
+        TMDB_KEY=os.environ['TMDB_KEY'],
+        SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        SECRET_KEY=os.environ['SECRET_KEY']
     )
     conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
     migrate = Migrate(app, db)
