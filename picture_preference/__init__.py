@@ -6,6 +6,7 @@ import psycopg2
 
 
 db = SQLAlchemy()
+migrate = Migrate()
 
 
 def create_app(test_config=None):
@@ -19,17 +20,15 @@ def create_app(test_config=None):
         # load test config if passed in
         app.config.from_mapping(test_config)
 
-    app.config.update(
-        # SQLALCHEMY_DATABASE_URI="postgresql://postgres:" + app.config["POSTGRES_PASSWORD"]
-        #                         + "@localhost:5432/picture_preference",
-        DATABASE_URL=os.environ['DATABASE_URL'],
-        SQLALCHEMY_DATABASE_URI=os.environ['SQLALCHEMY_DATABASE_URI'],
-        TMDB_KEY=os.environ['TMDB_KEY'],
-        SQLALCHEMY_TRACK_MODIFICATIONS=False,
-        SECRET_KEY=os.environ['SECRET_KEY']
-    )
-    conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
-    migrate = Migrate(app, db)
+    # app.config.update(
+        # DATABASE_URL=os.environ['DATABASE_URL'],
+        # SQLALCHEMY_DATABASE_URI=os.environ['SQLALCHEMY_DATABASE_URI'],
+        # TMDB_KEY=os.environ['TMDB_KEY'],
+        # SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        # SECRET_KEY=os.environ['SECRET_KEY']
+    # )
+    # conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
+    migrate.init_app(app, db)
 
     # ensure instance folder exists
     try:
@@ -54,4 +53,7 @@ def create_app(test_config=None):
     return app
 
 
-# app = create_app()
+app = create_app()
+
+if __name__ == '__main__':
+    app.run()

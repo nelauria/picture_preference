@@ -26,6 +26,10 @@ def build_top(chapters, chapter_length):
         titles, ranks, hrefs = web_scrape.top_pages(start_page=start, end_page=end)
         if not (len(titles) == len(ranks) == len(hrefs)):
             raise Exception("Error in web_scrape.py: titles, ranks, hrefs are not of the same length.")
+        try:
+            FilmModel.query.delete()
+        finally:
+            pass
         db.session.add_all([FilmModel(titles[i], ranks[i], hrefs[i]) for i in range(len(titles))])
         db.session.commit()
     print(f"Top {72*(chapters*chapter_length)} films initialized.")

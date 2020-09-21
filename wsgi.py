@@ -1,4 +1,4 @@
-from picture_preference import create_app
+from picture_preference import create_app, db
 
 
 if __name__ == '__main__':
