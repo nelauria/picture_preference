@@ -8,7 +8,7 @@
 html { color: #f0f1f2; font-family: 'Roboto'; font-size: 3.5vw}
 
 header { font-size: 3.5vw; width: 100%; height: 10%; margin: 0; padding: 0; }
-header h1 { font-size: 4.5rem; padding: 0; margin: 0.75vw 0 1vw 0; }
+header h1 { font-size: 3.5rem; padding: 0; margin: 0.75vw 0 1vw 0; }
 
 body { background: #14181c; width: 100%; height: 80%; margin: 0; padding: 0; }
 
@@ -18,18 +18,19 @@ nav {
     display: flex; align-items: center; padding: 1rem 0.5rem 1rem 0.5rem;
     width: 90%; height: 12.5%; margin: 0;
 }
-nav h1 { flex: auto; margin: 0; }
+nav h1 { font-size: 2.5rem; flex: auto; margin: 0; }
 .picture { color: #8cc8ff; }
 .preference { color: #ffb15e; }
 
 .content {
     background: #1e252c; height: 90%; padding: 1rem;
 }
-.content h2 { font-size: 4.75vw; display: inline-block; vertical-align: middle; margin-right: 1vw; }
+.content h2 { font-size: 3rem; display: inline-block; vertical-align: middle; margin-right: 1vw; }
 .content input {
-    padding: 0.25em; width: 20%; height: auto; display: inline-block; vertical-align: middle; font-size: inherit;
+    padding: 0.25em; width: 80%; height: auto; display: inline-block; vertical-align: middle; font-size: inherit;
     border-radius: 1rem; color: #14181c; padding-left: 0.5rem;
 }
+.content #explain { font-size: 1.25rem; }
 .content input:focus { outline-width: 0; }
 .content h3 { font-size: 1.2vw; }
 
@@ -55,13 +56,13 @@ nav h1 { flex: auto; margin: 0; }
 .rank { background: #adedff }
 .obscurity { background: #ffb15e }
 
-#dev-statement { font-size: 1vw; }
+#dev-statement { font-size: 1rem; }
 
 footer {
     width: 100%; height: 10%; background: #14181c; padding: 0; margin: 0;
 }
 footer ul { list-style: none; }
-footer li { display: inline; font-size: 2.25vw; }
+footer li { display: inline; font-size: 1.5rem; }
 footer a { color: #8cc8ff; }
 footer .github-logo {
     width: 8vw; height: auto; float: right; margin: 0 4vw 0 0;
