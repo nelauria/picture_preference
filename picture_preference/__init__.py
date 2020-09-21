@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, event
 from flask_migrate import Migrate
 import psycopg2
 
@@ -40,8 +40,11 @@ def create_app(test_config=None):
 
     with app.app_context():
         from . import film_db
+        # if film_db.FilmModel.__table__.exists(db.engine):
+        film_db.FilmModel.__table__.drop(db.engine)
         film_db.db.create_all()
-        film_db.build_top(chapters=1, chapter_length=15)
+        # film_db.build_top(chapters=1, chapter_length=15)
+        # event.listen(db.FilmModel.__table__, 'after_create', build_top(chapters=1,chapter_length=15))
 
         from . import film_search
         app.register_blueprint(film_search.bp)

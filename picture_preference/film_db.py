@@ -1,6 +1,7 @@
 from . import db
 from picture_preference import web_scrape
 from flask_sqlalchemy import event
+from flask import current_app
 
 
 class FilmModel(db.Model):
@@ -20,18 +21,21 @@ class FilmModel(db.Model):
         return f"<Film {self.title}"
 
 
-@event.listens_for(FilmModel.__table__, "after_create")
-def build_top(chapters, chapter_length):
+# @event.listens_for(FilmModel.__table__, "after_create")
+@current_app.before_first_request
+def build_top(*args, **kwargs):
+    chapters = 1
+    chapter_length = 15
     for chapter in range(chapters):
         start = 1+chapter*chapter_length
         end = (chapter+1)*chapter_length
         titles, ranks, hrefs = web_scrape.top_pages(start_page=start, end_page=end)
         if not (len(titles) == len(ranks) == len(hrefs)):
             raise Exception("Error in web_scrape.py: titles, ranks, hrefs are not of the same length.")
-        try:
-            FilmModel.query.delete()
-        finally:
-            pass
         db.session.add_all([FilmModel(titles[i], ranks[i], hrefs[i]) for i in range(len(titles))])
         db.session.commit()
     print(f"Top {72*(chapters*chapter_length)} films initialized.")
+
+
+event.listen(FilmModel.__table__, 'after_create', build_top(chapters=1, chapter_length=15))
+
