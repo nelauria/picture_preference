@@ -5,20 +5,23 @@
 {% endblock %}
 
 {% block content %}
-<!--<p>Film: {{ session["film"] }}</p>-->
-<!--<p>Rank: {{ g.rank }}</p>-->
-
 <h2>Popularity Stats:</h2>
 <div class="stats">
     <div class="rank">
         <i>{{ g.title }}</i> is ranked
-        <h1>#{{ g.rank }}</h1>
+        <h1>{{ g.rank }}</h1>
         among Letterboxd users.
     </div>
     <div class="obscurity">
+        {% if g.film %}
         <i>{{ g.title }}</i> is more obscure than
-        <h1>{{ "%.3g"|format(g.obscurity) }}%</h1>
+        <h1>{{ g.obscurity }}</h1>
         of 541,958 films on Letterboxd.
+        {% else %}
+        <i>{{ g.title }}</i> is
+        <h1>{{ g.obscurity }}</h1>
+        for this website.
+        {% endif %}
 </div>
 </div>
 <hr>

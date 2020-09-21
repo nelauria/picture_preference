@@ -20,4 +20,4 @@ def film_search():
             flash(error)
         else:
             return redirect(url_for('output.results'))
-    return render_template('film_search.html',TMDB_KEY=current_app.config["TMDB_KEY"])
+    return render_template('film_search.html', TMDB_KEY=current_app.config["TMDB_KEY"])
