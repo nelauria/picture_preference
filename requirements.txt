@@ -1,6 +1,8 @@
 bs4
-pandas
 flask
+flask_sqlalchemy
+flask_migrate
+psycopg2
 requests
 gunicorn
 click

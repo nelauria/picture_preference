@@ -1,20 +1,20 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
+# import pandas as pd
 
 
-def top(time_period='',page=1):
-    url = 'https://letterboxd.com/films/ajax/popular/'+time_period+'/size/small/'
-    if page != 1:
-        url = url+f'page/{page}/'
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content,'html.parser')
-    films_divs = soup.find_all(title=True)
-    films = pd.DataFrame()
-    films['Title'] = [films_divs[i]['title'][:-7] for i in range(len(films_divs))]
-    films['Year'] = [films_divs[i]['title'][-5:-1] for i in range(len(films_divs))]
-    films['href'] = [films_divs[i]['href'] for i in range(len(films_divs))]
-    return films
+# def top(time_period='',page=1):
+#     url = 'https://letterboxd.com/films/ajax/popular/'+time_period+'/size/small/'
+#     if page != 1:
+#         url = url+f'page/{page}/'
+#     page = requests.get(url)
+#     soup = BeautifulSoup(page.content,'html.parser')
+#     films_divs = soup.find_all(title=True)
+#     films = pd.DataFrame()
+#     films['Title'] = [films_divs[i]['title'][:-7] for i in range(len(films_divs))]
+#     films['Year'] = [films_divs[i]['title'][-5:-1] for i in range(len(films_divs))]
+#     films['href'] = [films_divs[i]['href'] for i in range(len(films_divs))]
+#     return films
 
 
 def search_film(query):
