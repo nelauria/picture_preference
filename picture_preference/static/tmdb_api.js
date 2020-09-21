@@ -23,7 +23,7 @@ function tmdb_search(apiKey) {
             images[i].src = "/static/photo-placeholder-icon-17.jpg"
         }
     }
-//    document.getElementById("test").innerHTML = result.title + " (" + result.release_date.slice(0,4) + ")"
+    document.getElementById("test").innerHTML = result.title + " (" + result.release_date.slice(0,4) + ")"
     div = document.getElementById("search-results");
     div.style.display = "block";
 }
