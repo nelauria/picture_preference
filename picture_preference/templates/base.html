@@ -9,6 +9,9 @@
     <link rel="stylesheet" media="screen and (min-width: 451px)"
           href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='tmdb_api.js') }}"></script>
+    <script>
+        document.getElementById("userInput").addEventListener("input", tmdb_search({{ TMDB_KEY }}))
+    </script>
 </head>
 <body>
     <nav>
