@@ -21,7 +21,6 @@ class FilmModel(db.Model):
         return f"<Film {self.title}"
 
 
-# @event.listens_for(FilmModel.__table__, "after_create")
 @event.listens_for(FilmModel.__table__, 'after_create')
 def build_top(*args, **kwargs):
     chapters = 2
@@ -35,7 +34,3 @@ def build_top(*args, **kwargs):
         db.session.add_all([FilmModel(titles[i], ranks[i], hrefs[i]) for i in range(len(titles))])
         db.session.commit()
     print(f"Top {72*(chapters*chapter_length)} films initialized.")
-
-
-# event.listen(FilmModel.__table__, 'after_create', build_top(chapters=1, chapter_length=15))
-
