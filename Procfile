@@ -1,1 +1,1 @@
-web: gunicorn "picture_preference:create_app()"
+web: gunicorn picture_preference:app
