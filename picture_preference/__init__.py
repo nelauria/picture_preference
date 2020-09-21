@@ -31,7 +31,7 @@ def create_app(test_config=None):
     conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
 
     # db.init_app(app)
-    migrate.init_app(app, db)
+    # migrate.init_app(app, db)
 
     # ensure instance folder exists
     try:
@@ -42,6 +42,7 @@ def create_app(test_config=None):
     with app.app_context():
         from . import film_db
         film_db.db.init_app(app)
+        migrate.init_app(app,db)
         if film_db.FilmModel.__table__.exists(db.engine):
             film_db.FilmModel.__table__.drop(db.engine)
         film_db.db.create_all()
