@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+import psycopg2
 
 
 db = SQLAlchemy()
@@ -21,7 +22,9 @@ def create_app(test_config=None):
     app.config.update(
         SQLALCHEMY_DATABASE_URI="postgresql://postgres:" + app.config["POSTGRES_PASSWORD"]
                                 + "@localhost:5432/picture_preference",
+        DATABASE_URL=os.environ['DATABASE_URL']
     )
+    conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
     migrate = Migrate(app, db)
 
     # ensure instance folder exists
