@@ -42,7 +42,7 @@ def create_app(test_config=None):
     with app.app_context():
         from . import film_db
         film_db.db.init_app(app)
-        migrate.init_app(app,db)
+        migrate.init_app(app, film_db.db)
         if film_db.FilmModel.__table__.exists(db.engine):
             film_db.FilmModel.__table__.drop(db.engine)
         film_db.db.create_all()
