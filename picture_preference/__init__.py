@@ -41,7 +41,7 @@ def create_app(test_config=None):
     with app.app_context():
         from . import film_db
         # if film_db.FilmModel.__table__.exists(db.engine):
-        film_db.FilmModel.__table__.drop(db.engine)
+        # film_db.FilmModel.__table__.drop(db.engine)
         film_db.db.create_all()
         # film_db.build_top(chapters=1, chapter_length=15)
         # event.listen(db.FilmModel.__table__, 'after_create', build_top(chapters=1,chapter_length=15))
