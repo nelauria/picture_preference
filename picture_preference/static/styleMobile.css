@@ -15,10 +15,10 @@ body { background: #14181c; width: 100%; height: 80%; margin: 0; padding: 0; }
 a { color: #40bcf4; }
 
 nav {
-    display: flex; align-items: center; padding: 1rem 0.5rem 1rem 0.5rem;
+    display: flex; align-items: center; padding: 1rem 0.5rem 1rem 0.5rem; text-align: center;
     width: 90%; height: 12.5%; margin: 0;
 }
-nav h1 { font-size: 2.5rem; flex: auto; margin: 0; }
+nav h1 { font-size: 2.5rem; flex: auto; margin: 0; text-align: center; }
 .picture { color: #8cc8ff; }
 .preference { color: #ffb15e; }
 
@@ -62,7 +62,7 @@ footer {
     width: 100%; height: 10%; background: #14181c; padding: 0; margin: 0;
 }
 footer ul { list-style: none; }
-footer li { display: inline; font-size: 0.75rem; margin: 0; }
+footer li { display: inline; font-size: 0.75rem; margin: 0; padding-lef: 0; }
 footer a { color: #8cc8ff; }
 footer .github-logo {
     width: 8vw; height: auto; float: right; margin: 0 4vw 0 0;
