@@ -22,7 +22,7 @@ class FilmModel(db.Model):
 
 
 # @event.listens_for(FilmModel.__table__, "after_create")
-@event.listen(FilmModel.__table__, 'after_create')
+@event.listens_for(FilmModel.__table__, 'after_create')
 def build_top(*args, **kwargs):
     chapters = 1
     chapter_length = 15
