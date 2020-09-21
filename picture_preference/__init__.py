@@ -20,6 +20,7 @@ def create_app(test_config=None):
         # load test config if passed in
         app.config.from_mapping(test_config)
 
+    # uncomment below for Heroku deployment
     app.config.update(
         DATABASE_URL=os.environ['DATABASE_URL'],
         SQLALCHEMY_DATABASE_URI=os.environ['SQLALCHEMY_DATABASE_URI'],
@@ -28,6 +29,7 @@ def create_app(test_config=None):
         SECRET_KEY=os.environ['SECRET_KEY']
     )
     conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
+
     migrate.init_app(app, db)
 
     # ensure instance folder exists

@@ -5,7 +5,7 @@ function tmdb_search(apiKey) {
     main_url = "https://api.themoviedb.org/3/search/movie?api_key="+apiKey+"&language=en-US";
     main_url += "&query="+query+"&page=1&include_adult=false";
     xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", main_url, false);
+    xmlHttp.open( "GET", main_url);
     xmlHttp.send( null );
     searchResponse = JSON.parse(xmlHttp.response);
     ul = document.getElementById("film-list");
