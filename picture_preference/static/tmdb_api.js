@@ -1,8 +1,8 @@
-function tmdb_search(apiKey) {
+function tmdb_search() {
     let input, query, main_url, xmlHttp, searchResponse, div, ul, titles = [], images = [];
     input = document.getElementById("userInput").value;
     query = input.replace(" ","%20");
-    main_url = "https://api.themoviedb.org/3/search/movie?api_key="+apiKey+"&language=en-US";
+    main_url = "https://api.themoviedb.org/3/search/movie?api_key="+TMDB_KEY+"&language=en-US";
     main_url += "&query="+query+"&page=1&include_adult=false";
     xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", main_url);
