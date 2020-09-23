@@ -23,7 +23,6 @@ $(document).on('input touchend', '#userInput', function(){
             if (data !== '[]') {
                 $(".search-results").css("display", "block")
             }
-            $("#test").html(dataJSON[0].title)
         }
     })
 //    $("#test").html("changed")
