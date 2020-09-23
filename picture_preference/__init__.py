@@ -1,11 +1,9 @@
 import os
 from flask import Flask
-# from flask_sqlalchemy import SQLAlchemy, event
 from flask_migrate import Migrate
 import psycopg2
 
 
-# db = SQLAlchemy()
 migrate = Migrate()
 
 

@@ -11,7 +11,8 @@
     <p id="test">Test stuff</p>
     <div class="search-container">
         <h2><label for="userInput">Film Title:</label></h2>
-        <input type="text" name="userInput" id="userInput" oninput="tmdb_search('{{ TMDB_KEY }}')">
+        <input type="text" name="userInput" id="userInput" oninput="tmdb_search('{{ TMDB_KEY }}')"
+        onchange="tmdb_search('{{ TMDB_KEY }}')">
         <div class="search-results" id="search-results">
             <h3>Select a film:</h3>
             <ul id="film-list">
