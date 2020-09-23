@@ -22,8 +22,13 @@
         <h1>{{ g.obscurity }}</h1>
         for this website.
         {% endif %}
+    </div>
 </div>
-</div>
+{% if not g.film %}
+<p class="congrats">Congratulations, you found a film that's more obscure than the 3,600 films in this website's
+    database. Don't feel too artsy yet though, your obscurity rating is still less than 1%. Check back in a little
+    while, hopefully I can increase the database capacity by then.</p>
+{% endif %}
 <hr>
 <a href="{{ url_for('home') }}">Input another film</a>
 {% endblock %}
