@@ -8,6 +8,10 @@
           href="{{ url_for('static', filename='styleMobile.css') }}">
     <link rel="stylesheet" media="screen and (min-width: 451px)"
           href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='jquery-3.5.1.min.js') }}"></script>
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
     <script src="{{ url_for('static', filename='tmdb_api.js') }}"></script>
 </head>
 <body>

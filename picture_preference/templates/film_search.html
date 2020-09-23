@@ -11,46 +11,43 @@
 <!--    <p id="test">Test stuff</p>-->
     <div class="search-container">
         <h2><label for="userInput">Film Title:</label></h2>
-        <input type="text" name="userInput" id="userInput" oninput="tmdb_search('{{ TMDB_KEY }}')"
-        onchange="tmdb_search('{{ TMDB_KEY }}')">
+        <input type="text" name="userInput" id="userInput">
         <div class="search-results" id="search-results">
             <h3>Select a film:</h3>
-            <ul id="film-list">
-                <div class="list-item">
-                    <img class="poster">
-                    <form id="film" action="" method="post">
-                        <button form="film" type="submit" name="film"></button>
-                    </form>
-                </div>
-                <hr>
-                <div class="list-item">
-                    <img id="poster">
-                    <form id="film" action="" method="post">
-                        <button form="film" type="submit" name="film"></button>
-                    </form>
-                </div>
-                <hr>
-                <div class="list-item">
-                    <img id="poster">
-                    <form id="film" action="" method="post">
-                        <button form="film" type="submit" name="film"></button>
-                    </form>
-                </div>
-                <hr>
-                <div class="list-item">
-                    <img id="poster">
-                    <form id="film" action="" method="post">
-                        <button form="film" type="submit" name="film"></button>
-                    </form>
-                </div>
-                <hr>
-                <div class="list-item-blue">
-                    <img id="poster">
-                    <form id="film" action="" method="post">
-                        <button form="film" type="submit" name="film"></button>
-                    </form>
-                </div>
-            </ul>
+            <div class="list-item">
+                <img class="poster">
+                <form id="film" action="" method="post">
+                    <button class="film-button" form="film" type="submit" name="film"></button>
+                </form>
+            </div>
+            <hr>
+            <div class="list-item">
+                <img class="poster">
+                <form id="film" action="" method="post">
+                    <button class="film-button" form="film" type="submit" name="film"></button>
+                </form>
+            </div>
+            <hr>
+            <div class="list-item">
+                <img class="poster">
+                <form id="film" action="" method="post">
+                    <button class="film-button" form="film" type="submit" name="film"></button>
+                </form>
+            </div>
+            <hr>
+            <div class="list-item">
+                <img class="poster">
+                <form id="film" action="" method="post">
+                    <button class="film-button" form="film" type="submit" name="film"></button>
+                </form>
+            </div>
+            <hr>
+            <div class="list-item">
+                <img class="poster">
+                <form id="film" action="" method="post">
+                    <button class="film-button" form="film" type="submit" name="film"></button>
+                </form>
+            </div>
         </div>
     </div>
     <hr>

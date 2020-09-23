@@ -7,7 +7,7 @@ import psycopg2
 migrate = Migrate()
 
 
-def create_app(test_config=None):
+def create_app(config='flask', test_config=None):
     # create & configure app
     app = Flask(__name__, instance_relative_config=True)
 
@@ -19,14 +19,15 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
 
     # uncomment below for Heroku deployment
-    app.config.update(
-        DATABASE_URL=os.environ['DATABASE_URL'],
-        SQLALCHEMY_DATABASE_URI=os.environ['SQLALCHEMY_DATABASE_URI'],
-        TMDB_KEY=os.environ['TMDB_KEY'],
-        SQLALCHEMY_TRACK_MODIFICATIONS=False,
-        SECRET_KEY=os.environ['SECRET_KEY']
-    )
-    conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
+    if config == 'heroku':
+        app.config.update(
+            DATABASE_URL=os.environ['DATABASE_URL'],
+            SQLALCHEMY_DATABASE_URI=os.environ['SQLALCHEMY_DATABASE_URI'],
+            TMDB_KEY=os.environ['TMDB_KEY'],
+            SQLALCHEMY_TRACK_MODIFICATIONS=False,
+            SECRET_KEY=os.environ['SECRET_KEY']
+        )
+        conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
 
     # db.init_app(app)
     # migrate.init_app(app, db)

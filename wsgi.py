@@ -1,4 +1,3 @@
 from picture_preference import create_app
 
-app = create_app()
-# app.run()
+app = create_app(config='heroku')

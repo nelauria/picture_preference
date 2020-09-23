@@ -7,8 +7,8 @@
 
 html { color: #f0f1f2; font-family: 'Roboto'; font-size: 4vw; }
 
-header { font-size: 3.5vw; width: 100%; height: 10%; margin: 0; padding: 0; }
-header h1 { font-size: 2rem; padding: 0; margin: 0.75vw 0 1vw 0; }
+header { width: 100%; height: 10%; margin: 0; padding: 0; }
+header h1 { font-size: 1.75rem; padding: 0; margin: 0.75vw 0 1vw 0; }
 
 body { background: #14181c; width: 100%; height: 80%; margin: 0; padding: 0; }
 
@@ -18,43 +18,45 @@ nav {
     display: flex; align-items: center; padding: 1rem 0.5rem 1rem 0.5rem; text-align: center;
     width: 90%; height: 12.5%; margin: 0;
 }
-nav h1 { font-size: 2.5rem; flex: auto; margin: 0; text-align: center; }
+nav h1 { font-size: 2rem; flex: auto; margin: 0; text-align: center; }
 .picture { color: #8cc8ff; }
 .preference { color: #ffb15e; }
 
 .content {
     background: #1e252c; height: 90%; padding: 1rem;
 }
-.content h2 { font-size: 2rem; display: inline-block; vertical-align: middle; margin: 0.5rem 0 0.5rem 0; }
+.content h2 { font-size: 1.5rem; display: inline-block; vertical-align: middle; margin: 0.5rem 0 0.5rem 0; }
 .content input {
     padding: 0.5em; width: 80%; ; display: inline-block; vertical-align: middle; font-size: inherit;
     border-radius: 1rem; color: #14181c; padding-left: 0.5rem;
 }
-.content #explain { font-size: 1.25rem; }
+.content #explain { font-size: 1.1rem; }
 .content input:focus { outline-width: 0; }
 .content h3 { font-size: 1.2vw; }
 
 .search-results { display: none; position: relative; margin: 0 0 0 0; }
-.search-results ul { list-style: none; padding: 0.2vw 0 0.2vw 0; }
-.search-results li { margin: 1vw 0.75vw 1vw 0.75vw; }
-.search-results form { display: inline-block; vertical-align: middle; }
+.search-results h3 { font-size: 1rem; }
+.search-results .list-item { margin: 1vw 0.75vw 1vw 0.75vw; vertical-align: middle; overflow: auto; width: 92vw; }
+.search-results form { display: inline; vertical-align: middle; overflow: auto; width: inherit; height: auto; }
 .search-results button {
     border: none; background-color: inherit; padding: 1vw 0.75vw; color: inherit; font-size: 1.25rem; cursor: pointer;
-    display: inline-block; vertical-align: middle; overflow-wrap: normal; position: relative; left: 14vw;
+    display: inline-block; vertical-align: middle; overflow-wrap: normal; white-space: normal; text-align: left;
+    margin-top: 1rem; width: 65vw; height: auto;
 }
 .search-results img {
-    display: inline-block; width: 8vw; height: auto; margin: 0 1vw 0 2vw; vertical-align: middle; position: absolute;
+    display: inline-block; width: 18vw; height: auto; margin: 0 1vw 0 2vw; vertical-align: middle;
 }
+.list-item { display: inline-block; }
 
 .stats {
     background: inherit; padding: 1rem; color: #14181c; text-align: center;
-    display: flex; flex-direction: column; justify-content: center; margin: auto;
+    display: flex; flex-direction: column; justify-content: center; margin: auto; overflow: auto;
 }
 .stats > div {
-    width: 80%; height: 11vw; padding: 1rem 0.5rem 1rem 0.5rem;
-    margin: 10px 0 10px 0; vertical-align: middle; border-radius: 1rem;
+    width: 80%; padding: 1rem 0.5rem 1rem 0.5rem; margin: 10px 0 10px 0; vertical-align: middle; border-radius: 1rem;
+    overflow: auto;
 }
-.stats h1 { font-size: 4.75vw }
+.stats h1 { font-size: 4.75vw; margin: 0.5rem 0 0.5rem 0; }
 .rank { background: #adedff }
 .obscurity { background: #ffb15e }
 
