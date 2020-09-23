@@ -7,7 +7,7 @@ $(document).on('input touchend', '#userInput', function(){
         data: {searchQuery: input},
         dataType: "text",
         success: function(data) {
-            dataJSON = JSON.parse(data)
+            let dataJSON = JSON.parse(data)
 //            $.each(dataJSON, function(index, item) {
 //                title = item.title
 //                buttonText = title.italics() + " (" + item.release_date.slice(0,4) + ")";
@@ -23,7 +23,7 @@ $(document).on('input touchend', '#userInput', function(){
 //            if (data !== '[]') {
 //                $(".search-results").css("display", "block")
 //            }
-            $("#test").html(dataJSON)
+            $("#test").html(dataJSON[0].title)
         }
     })
 //    $("#test").html("changed")
