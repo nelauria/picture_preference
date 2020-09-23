@@ -14,8 +14,8 @@ $(document).on('input touchend', '#userInput', function(){
                 if (item.poster_path) {
                     posterLink = "https://image.tmdb.org/t/p/w92/" + item.poster_path;
                 } else {
-//                    posterLink = "/static/photo-placeholder-icon-17.jpg"
-                    posterLink = ""
+                    posterLink = "/static/photo-placeholder-icon-17.jpg"
+//                    posterLink = ""
                 }
                 $(".film-button").eq(index).html(buttonText)
                 $(".film-button").eq(index).attr("value", title + " (" + item.release_date.slice(0,4) + ")")
