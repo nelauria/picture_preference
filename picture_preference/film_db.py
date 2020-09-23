@@ -27,7 +27,7 @@ class FilmModel(db.Model):
 def build_top(*args, **kwargs):
     FilmModel.query.delete()
     chapters = 2
-    chapter_length = 15
+    chapter_length = 25
     for chapter in range(chapters):
         start = 1+chapter*chapter_length
         end = (chapter+1)*chapter_length
