@@ -8,21 +8,22 @@ $(document).on('input touchend', '#userInput', function(){
         dataType: "text",
         success: function(data) {
             let dataJSON = JSON.parse(data)
-//            $.each(dataJSON, function(index, item) {
-//                title = item.title
-//                buttonText = title.italics() + " (" + item.release_date.slice(0,4) + ")";
-//                if (item.poster_path) {
-//                    posterLink = "https://image.tmdb.org/t/p/w92/" + item.poster_path;
-//                } else {
+            $.each(dataJSON, function(index, item) {
+                title = item.title
+                buttonText = title.italics() + " (" + item.release_date.slice(0,4) + ")";
+                if (item.poster_path) {
+                    posterLink = "https://image.tmdb.org/t/p/w92/" + item.poster_path;
+                } else {
 //                    posterLink = "/static/photo-placeholder-icon-17.jpg"
-//                }
-//                $(".film-button").eq(index).html(buttonText)
-//                $(".film-button").eq(index).attr("value", title + " (" + item.release_date.slice(0,4) + ")")
-//                $(".poster").eq(index).attr("src", posterLink)
-//            })
-//            if (data !== '[]') {
-//                $(".search-results").css("display", "block")
-//            }
+                    posterLink = ""
+                }
+                $(".film-button").eq(index).html(buttonText)
+                $(".film-button").eq(index).attr("value", title + " (" + item.release_date.slice(0,4) + ")")
+                $(".poster").eq(index).attr("src", posterLink)
+            })
+            if (data !== '[]') {
+                $(".search-results").css("display", "block")
+            }
             $("#test").html(dataJSON[0].title)
         }
     })
