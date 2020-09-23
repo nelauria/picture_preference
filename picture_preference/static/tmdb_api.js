@@ -1,5 +1,7 @@
-function tmdb_search(apiKey) {
-    let input, query, main_url, xmlHttp, searchResponse, div, ul, titles = [], images = [];
+function tmdb_search() {
+    let apiKey, input, query, main_url, xmlHttp, searchResponse, div, ul, titles = [], images = [];
+    apiKey = new XMHttpRequest();
+    apiKey.open( "GET", "/")
     input = document.getElementById("userInput").value;
     query = input.replace(" ","%20");
     main_url = "https://api.themoviedb.org/3/search/movie?api_key="+apiKey+"&language=en-US";
@@ -23,7 +25,7 @@ function tmdb_search(apiKey) {
             images[i].src = "/static/photo-placeholder-icon-17.jpg"
         }
     }
-    document.getElementById("test").innerHTML = result.title + " (" + result.release_date.slice(0,4) + ")"
+//    document.getElementById("test").innerHTML = result.title + " (" + result.release_date.slice(0,4) + ")"
     div = document.getElementById("search-results");
     div.style.display = "block";
 }

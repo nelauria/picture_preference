@@ -39,10 +39,12 @@ nav h1 { font-size: 2.5rem; flex: auto; margin: 0; text-align: center; }
 .search-results li { margin: 1vw 0.75vw 1vw 0.75vw; }
 .search-results form { display: inline-block; vertical-align: middle; }
 .search-results button {
-    border: none; background-color: inherit; padding: 1vw 0.75vw; color: inherit; font-size: 1.5vw; cursor: pointer;
-    display: inline-block; vertical-align: middle;
+    border: none; background-color: inherit; padding: 1vw 0.75vw; color: inherit; font-size: 1.25rem; cursor: pointer;
+    display: inline-block; vertical-align: middle; overflow-wrap: normal; position: relative; left: 14vw;
 }
-.search-results img { display: inline-block; width: 4.5vw; height: auto; margin: 0 1vw 0 2vw; vertical-align: middle; }
+.search-results img {
+    display: inline-block; width: 8vw; height: auto; margin: 0 1vw 0 2vw; vertical-align: middle; position: absolute;
+}
 
 .stats {
     background: inherit; padding: 1rem; color: #14181c; text-align: center;
@@ -62,8 +64,8 @@ footer {
     width: 100%; height: 10%; background: #14181c; padding: 0; margin: 0;
 }
 footer ul { list-style: none; padding-left: 0.2rem; }
-footer li { display: inline; font-size: 0.75rem; margin: 0; padding-left: 0; }
+footer li { display: inline; font-size: 0.75rem; margin: 0; padding-left: 0.2rem; vertical-align: middle; }
 footer a { color: #8cc8ff; }
 footer .github-logo {
-    width: 8vw; height: auto; float: right; margin: 0 4vw 0 0;
+    width: 8vw; height: auto; float: right; margin: 0 4vw 0 0; padding-bottom: 1rem;
 }
