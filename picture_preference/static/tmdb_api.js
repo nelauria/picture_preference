@@ -30,5 +30,7 @@ $(document).on('input touchend', '#userInput', function(){
 
 $(document).on("focus", "#userInput", function(){
 //    $("#test").html("changed")
-    $(".explain").css("height", 0);
+    if ($(window).width() <= 450) {
+        $(".explain").css("height", 0);
+    }
 });

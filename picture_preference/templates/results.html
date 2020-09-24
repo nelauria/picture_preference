@@ -8,13 +8,13 @@
 <h2>Popularity Stats:</h2>
 <div class="stats">
     <div class="rank">
-        <i>{{ g.title }}</i> is ranked
+        <i>{{ g.title[:-7] }}</i> {{ g.title[-6:] }} is ranked
         <h1>{{ g.rank }}</h1>
         among Letterboxd users.
     </div>
     <div class="obscurity">
         {% if g.film %}
-        <i>{{ g.title }}</i> is more obscure than
+        <i>{{ g.title[:-7] }}</i> {{g.title[-6:] }} is more obscure than
         <h1>{{ g.obscurity }}</h1>
         of 541,958 films on Letterboxd.
         {% else %}
