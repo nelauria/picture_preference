@@ -31,11 +31,25 @@ nav h1 { font-size: 2rem; flex: auto; margin: 0; text-align: center; }
     padding: 0.5em; width: 80%; ; display: inline-block; vertical-align: middle; font-size: inherit;
     border-radius: 1rem; color: #14181c; padding-left: 0.5rem;
 }
+.content .explain {
+    overflow: hidden;
+    -webkit-transition: height 400ms ease-out;
+    -moz-transition: height 400ms ease-out;
+    -o-transition: height 400ms ease-out;
+    transition: height 400ms ease-out;
+}
 .content #explain { font-size: 1.1rem; }
 .content input:focus { outline-width: 0; }
 .content h3 { font-size: 1.2vw; }
 
-.search-results { display: none; position: relative; margin: 0 0 0 0; }
+.search-results {
+    display: none; position: relative; margin: 0 0 0 0;
+    overflow: hidden;
+    -webkit-transition: height 400ms ease-out;
+    -moz-transition: height 400ms ease-out;
+    -o-transition: height 400ms ease-out;
+    transition: height 400ms ease-out;
+}
 .search-results h3 { font-size: 1rem; }
 .search-results .list-item { margin: 1vw 0.75vw 1vw 0.75vw; vertical-align: middle; overflow: auto; width: 92vw; }
 .search-results form { display: inline; vertical-align: middle; overflow: auto; width: inherit; height: auto; }

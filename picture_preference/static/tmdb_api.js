@@ -28,3 +28,7 @@ $(document).on('input touchend', '#userInput', function(){
 //    $("#test").html("changed")
 });
 
+$(document).on("focus", "#userInput", function(){
+//    $("#test").html("changed")
+    $(".explain").css("height", 0);
+});
