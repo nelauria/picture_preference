@@ -20,7 +20,7 @@ class FilmModel(db.Model):
         self.href = href
 
     def __repr__(self):
-        return f"<Film {self.title}"
+        return f"<Film {self.title}>"
 
 
 @event.listens_for(FilmModel.__table__, 'after_create')
