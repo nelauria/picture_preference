@@ -74,7 +74,7 @@ nav h1 { flex: auto; margin: 0; }
 .stats h1 { font-size: 2.5vw }
 .rank { background: #adedff; }
 .obscurity { background: #ffb15e }
-.easter-egg-img { display: block; margin: auto; height: 15vw; }
+.easter-egg-img { display: block; margin: auto; height: 15vw; border-radius: 1rem; }
 .easter-egg-text {
     font-size: 0.75rem; display: block; margin: auto; width: 80%; text-align: center; margin-top: 0.5rem;
 }
