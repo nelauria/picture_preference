@@ -30,7 +30,7 @@ def build_top(*args, **kwargs):
     chapters = 5
     chapter_length = 25
     for chapter in range(chapters):
-        print(f"Filling from chapter {chapter+1}...")
+        print(f"Filling from chapter {chapter+1} ({chapter_length} pages)...")
         start = 1+chapter*chapter_length
         end = (chapter+1)*chapter_length
         titles, ranks, hrefs = web_scrape.top_pages(start_page=start, end_page=end)
