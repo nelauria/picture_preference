@@ -29,9 +29,6 @@ def create_app(config='flask', test_config=None):
         )
         conn = psycopg2.connect(app.config['DATABASE_URL'], sslmode='require')
 
-    # db.init_app(app)
-    # migrate.init_app(app, db)
-
     # ensure instance folder exists
     try:
         os.makedirs(app.instance_path)
@@ -42,8 +39,6 @@ def create_app(config='flask', test_config=None):
         from . import film_db
         film_db.db.init_app(app)
         migrate.init_app(app, film_db.db)
-        # if film_db.FilmModel.__table__.exists(film_db.db.engine):
-        #     film_db.FilmModel.__table__.drop(film_db.db.engine)
         film_db.db.create_all()
 
         from . import film_search
