@@ -5,10 +5,10 @@ import requests
 import json
 
 
-bp = Blueprint('film_search',__name__)
+bp = Blueprint('film_search', __name__)
 
 
-@bp.route('/', methods=('GET','POST'))
+@bp.route('/', methods=('GET', 'POST'))
 def film_search():
     if not request.script_root:
         request.script_root = url_for('home', _external=True)

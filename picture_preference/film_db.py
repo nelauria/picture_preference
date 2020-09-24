@@ -24,11 +24,13 @@ class FilmModel(db.Model):
 
 
 @event.listens_for(FilmModel.__table__, 'after_create')
+@current_app.cli.command("db-reinit")
 def build_top(*args, **kwargs):
     FilmModel.query.delete()
-    chapters = 2
+    chapters = 5
     chapter_length = 25
     for chapter in range(chapters):
+        print(f"Filling from chapter {chapter+1}...")
         start = 1+chapter*chapter_length
         end = (chapter+1)*chapter_length
         titles, ranks, hrefs = web_scrape.top_pages(start_page=start, end_page=end)
