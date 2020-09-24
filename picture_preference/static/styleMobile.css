@@ -53,13 +53,14 @@ nav h1 { font-size: 2rem; flex: auto; margin: 0; text-align: center; }
 .search-results h3 { font-size: 1rem; }
 .search-results .list-item { margin: 1vw 0.75vw 1vw 0.75vw; vertical-align: middle; overflow: auto; width: 92vw; }
 .search-results form { display: inline; vertical-align: middle; overflow: auto; width: inherit; height: auto; }
-.search-results button {
+.search-results .film-button {
     border: none; background-color: inherit; padding: 0.75vw 0.75vw; color: inherit; font-size: 1.25rem; cursor: pointer;
     display: inline-block; vertical-align: middle; overflow-wrap: normal; white-space: normal; text-align: left;
     margin-top: 0.5rem; width: 65vw; height: auto;
 }
-.search-results img {
-    display: inline-block; width: 18vw; height: auto; margin: 0 1vw 0 2vw; vertical-align: middle;
+.search-results .poster-button {
+    display: inline-block; width: 18vw; height: 27vw; margin: 0 1vw 0 2vw; vertical-align: middle; padding: 0;
+    background-size: 100%; border: none; cursor: pointer;
 }
 .list-item { display: inline-block; }
 

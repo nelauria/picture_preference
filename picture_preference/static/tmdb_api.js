@@ -10,18 +10,20 @@ $(document).on('input touchend', '#userInput', function(){
             let dataJSON = JSON.parse(data)
             $.each(dataJSON, function(index, item) {
                 title = item.title
+                buttonValue = title + " (" + item.release_date.slice(0,4) + ")";
                 buttonText = title.italics() + " (" + item.release_date.slice(0,4) + ")";
                 if (item.poster_path) {
                     posterLink = "https://image.tmdb.org/t/p/w92/" + item.poster_path;
                 } else {
-                    posterLink = "/static/photo-placeholder-icon-17.jpg"
+                    posterLink = "/static/photo-placeholder-icon-17.jpg";
                 }
-                $(".film-button").eq(index).html(buttonText)
-                $(".film-button").eq(index).attr("value", title + " (" + item.release_date.slice(0,4) + ")")
-                $(".poster").eq(index).attr("src", posterLink)
+                $(".film-button").eq(index).html(buttonText);
+                $(".film-button").eq(index).attr("value", buttonValue);
+                $(".poster-button").eq(index).css("background-image", "url(" + posterLink + ")");
+                $(".poster-button").eq(index).attr("value", buttonValue);
             })
             if (data !== '[]') {
-                $(".search-results").css("display", "block")
+                $(".search-results").css("display", "block");
             }
         }
     })
