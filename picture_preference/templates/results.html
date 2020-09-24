@@ -24,7 +24,73 @@
         {% endif %}
     </div>
 </div>
-{% if not g.film %}
+{% if g.title == "Spider-Man 3 (2007)" %}
+<div class="easter-egg">
+    <img src="https://media1.tenor.com/images/ef1eb3d9cc4ae797a340026370194ebf/tenor.gif?itemid=7463412"
+        class="easter-egg-img">
+    <a class="easter-egg-text" href="https://letterboxd.com/choshacao314/film/spider-man-3/" target="_blank">
+        Emo Peter Parker is a cinematic masterpiece, fight me.</a>
+</div>
+{% elif g.title == "Pulp Fiction (1994)" %}
+<div class="easter-egg">
+    <img src="https://media.tenor.com/images/aedbaf500da3f0d49fd287f781a15177/tenor.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">This is you looking for laughs after you make another "English motherfucker,
+    do you speak it??" joke
+</div>
+{% elif g.title == "Vampire's Kiss (1988)" %}
+<div class="easter-egg">
+    <img src="https://media1.tenor.com/images/f406e06e1c6b40052be3c0c638821558/tenor.gif?itemid=3551187"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Canonically the best scene in film history</p>
+</div>
+{% elif g.title == "National Treasure (2004)" %}
+<div class="easter-egg">
+    <img src="https://cdn.quotesgram.com/img/95/67/271142263-tumblr_mdal2udx8F1qg462ao4_r1_250.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Look at that absolute confidence from my boi Nic Cage (but hot take there are a lot
+        of better Nic Cage movies you could watch)</p>
+</div>
+{% elif g.title == "Mandy (2018)" %}
+<div class="easter-egg">
+    <img src="https://64.media.tumblr.com/0faed7820222f540ff5f603972d24a30/tumblr_pgjx6qMvaH1rtecnto8_500.gifv"
+        class="easter-egg-img">
+    <p class="easter-egg-text">This surreal insanity is everything I want in a Nic Cage movie</p>
+</div>
+{% elif g.title == "The Wicker Man (2006)" %}
+<div class="easter-egg">
+    <img src="https://i.pinimg.com/originals/38/28/cd/3828cdb13ad7d7c5b551e665d8e70e87.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Not the bees :(</p>
+</div>
+{% elif g.title == "Ghost Rider (2007)" %}
+<div class="easter-egg">
+    <img src="https://bloody-disgusting.com/wp-content/uploads/2014/05/nicolas-cage-ghost-rider.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Can we please get Nic Cage's Ghost Rider to join the MCU</p>
+</div>
+{% elif g.title == "Face/Off (1997)" %}
+<div class="easter-egg">
+    <img src="https://media0.giphy.com/media/Ma8bDSYN2MWvm/source.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Me fending off all the Nic Cage haters</p>
+</div>
+{% elif g.title == "The Room (2003)" %}
+<div class="easter-egg">
+    <img src="https://media1.giphy.com/media/3o751ZGnnh1aRKf34Q/giphy.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Fun fact: I did Tommy's lines from this scene as a monologue in high school theater.
+        Yes, it was as cringy as you think it was.</p>
+</div>
+{% elif g.title == "Cool as Ice (1991)" %}
+<div class="easter-egg">
+    <img src="https://thumbs.gfycat.com/LeftDescriptiveAfricancivet-size_restricted.gif"
+        class="easter-egg-img">
+    <p class="easter-egg-text">Congrats, you found the super secret easter egg! Why do you even know about this
+        movie? Don't ask why I own a DVD of it, that's not important.</p>
+</div>
+{% endif %}
+{% if (not g.film) and (g.title != "Cool as Ice (1991)") %}
 <p class="congrats">Congratulations, you found a film that's more obscure than the 3,600 films in this website's
     database. Don't feel too artsy yet though, your obscurity rating could still be less than 1%. Check back in a little
     while, hopefully I can increase the database capacity by then.</p>
