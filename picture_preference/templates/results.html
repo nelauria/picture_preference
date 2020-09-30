@@ -13,23 +13,16 @@
         among Letterboxd users.
     </div>
     <div class="obscurity">
-        {% if g.film %}
-        <i>{{ g.title[:-7] }}</i> {{g.title[-6:] }} is more obscure than
+        <i>{{ g.title[:-7] }}</i> {{g.title[-6:] }} has an obscurity rating of
         <h1>{{ g.obscurity }}</h1>
-        of 541,958 films on Letterboxd.
-        {% else %}
-        <i>{{ g.title }}</i> is
-        <h1>{{ g.obscurity }}</h1>
-        for this website.
-        {% endif %}
+        out of 10.
     </div>
 </div>
 
 <div class="easter-egg">{% include "easter_eggs.html" %}</div>
 {% if (not g.film) and (g.title != "Cool as Ice (1991)") %}
 <p class="congrats">Congratulations, you found a film that's more obscure than the 9,000 films in this website's
-    database. Don't feel too artsy yet though, your obscurity rating could still be less than 2%. Check back in a little
-    while, hopefully I can increase the database capacity by then.</p>
+    database! Do you feel all artsy and hipster?</p>
 {% endif %}
 <hr>
 <a href="{{ url_for('home') }}">Input another film</a>
