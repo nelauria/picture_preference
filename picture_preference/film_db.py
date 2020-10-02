@@ -1,4 +1,3 @@
-# from . import db
 from picture_preference import web_scrape
 from flask_sqlalchemy import SQLAlchemy, event
 from flask import current_app
