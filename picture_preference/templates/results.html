@@ -9,7 +9,12 @@
 <div class="stats">
     <div class="rank">
         <i>{{ g.title[:-7] }}</i> {{ g.title[-6:] }} is ranked
+        {% if g.rank %}
         <h1>{{ g.rank }}</h1>
+        {% else %}
+        <img src="https://media.tenor.com/images/330988601e92b8ccba5332208700918a/tenor.gif"
+             class="over-9000"/>
+        {% endif %}
         among Letterboxd users.
     </div>
     <div class="obscurity">

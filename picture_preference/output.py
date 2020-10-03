@@ -20,7 +20,7 @@ def results():
         g.obscurity = (1-g.popularity)*10
         g.obscurity = "%.2g" % g.obscurity
     else:
-        g.rank = "Pretty damn low"
+        g.rank = None
         g.obscurity = "10"
 
     return render_template('results.html')
