@@ -57,8 +57,12 @@ def top_pages(time_period='', start_page=1, end_page=10):
         soup = BeautifulSoup(page.content,'html.parser')
         films_divs = soup.find_all(title=True)
         iter_range = range(len(films_divs))
-        titles = [films_divs[i]['title'] for i in iter_range]
-        hrefs = [films_divs[i]['href'] for i in iter_range]
-        tmdb_ids = [tmdb_id(films_divs[i]['title']) for i in iter_range]
-        ranks = [i+1+(page_num-1)*72 for i in iter_range]
+        chapter_titles = [films_divs[i]['title'] for i in iter_range]
+        titles += chapter_titles
+        chapter_hrefs = [films_divs[i]['href'] for i in iter_range]
+        hrefs += chapter_hrefs
+        chapter_tmdb_ids = [tmdb_id(films_divs[i]['title']) for i in iter_range]
+        tmdb_ids += chapter_tmdb_ids
+        chapter_ranks = [i+1+(page_num-1)*72 for i in iter_range]
+        ranks += chapter_ranks
     return titles, ranks, hrefs, tmdb_ids
