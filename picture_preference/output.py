@@ -26,12 +26,14 @@ def results():
             g.mainstream = FilmModel.query.filter(
                 FilmModel.rank.between(min_rank, g.film.rank)
             ).all()
+            g.main_ids = [i.tmdb_id for i in g.mainstream]
         if g.obscurity <= 9.0:
             max_rank = 1 - 2000 * math.log(1 - (g.obscurity + 0.5) / 10)
             max_rank = math.floor(max_rank)
             g.obscure = FilmModel.query.filter(
                 FilmModel.rank.between(g.film.rank, max_rank)
             ).all()
+            g.obs_ids = [i.tmdb_id for i in g.obscure]
         g.obscurity = "%.2g" % g.obscurity
     else:
         g.rank = None

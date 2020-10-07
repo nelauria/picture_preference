@@ -6,11 +6,11 @@
 
 {% block content %}
 {% if g.mainstream %}
-<div class="mainstream">{{ g.mainstream.id }}</div>
+<div class="mainstream">{{ g.main_ids }}</div>
 <hr/>
 {% endif %}
 {% if g.obscure %}
-<div class="obscure">{{ g.obscure }}</div>
+<div class="obscure">{{ g.obs_ids }}</div>
 {% endif %}
 <h2>Popularity Stats:</h2>
 <div class="stats">
