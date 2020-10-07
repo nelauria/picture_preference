@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block content %}
+{% if g.mainstream %}
+<div class="mainstream">{{ g.mainstream.id }}</div>
+<hr/>
+{% endif %}
+{% if g.obscure %}
+<div class="obscure">{{ g.obscure }}</div>
+{% endif %}
 <h2>Popularity Stats:</h2>
 <div class="stats">
     <div class="rank">
