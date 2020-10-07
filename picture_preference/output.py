@@ -3,12 +3,14 @@ from flask import (
 )
 from .film_db import FilmModel
 import math
+# from .easter_eggs import easter_eggs
 
 bp = Blueprint('output', __name__)
 
 
 @bp.route('/results')
 def results():
+    # g.easter_eggs = easter_eggs
     g.title = session["film"]
     error = None
     g.film = FilmModel.query.filter(
