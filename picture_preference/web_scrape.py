@@ -6,7 +6,7 @@ import requests
 def tmdb_id(title_year):
     api_key = current_app.config["TMDB_KEY"]
     search_url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&language=en-US"
-    # print(title_year)
+    print(title_year)
     title = title_year[:-7]
     title = title.replace(" ", "%20").replace("#", "%23")
     try:
@@ -51,7 +51,12 @@ def meta_soup(film_id):
     details = response.json()
     genres = [i["name"].replace(" ", "").lower() for i in details["genres"]]
     keywords = [i["name"].replace(" ", "").lower() for i in details["keywords"]["keywords"]]
-    cast = [details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in range(0, 3)]
+    if len(details["credits"]["cast"]) >= 3:
+        cast = [details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in range(0,3)]
+    else:
+        cast = [
+            details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in range(len(details["credits"]["cast"]))
+        ]
     directors = [i["name"].replace(" ", "").lower() for i in details["credits"]["crew"] if i["job"] == "Director"]
     metadata = genres + keywords + cast + directors
     soup = " ".join(metadata)
