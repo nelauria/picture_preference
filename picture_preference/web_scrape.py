@@ -44,11 +44,26 @@ def tmdb_id(title_year):
     return film_id
 
 
+def meta_soup(film_id):
+    api_key = current_app.config["TMDB_KEY"]
+    details_url = f"https://api.themoviedb.org/3/movie/{film_id}?api_key={api_key}&language=en-US&append_to_response=keywords,credits"
+    response = requests.get(details_url)
+    details = response.json()
+    genres = [i["name"].replace(" ", "").lower() for i in details["genres"]]
+    keywords = [i["name"].replace(" ", "").lower() for i in details["keywords"]["keywords"]]
+    cast = [details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in range(0, 3)]
+    directors = [i["name"].replace(" ", "").lower() for i in details["credits"]["crew"] if i["job"] == "Director"]
+    metadata = genres + keywords + cast + directors
+    soup = " ".join(metadata)
+    return soup
+
+
 def top_pages(time_period='', start_page=1, end_page=10):
     titles = []
     ranks = []
     hrefs = []
     tmdb_ids = []
+    film_meta = []
     for page_num in range(start_page, end_page+1):
         url = 'https://letterboxd.com/films/ajax/popular/'+time_period+'/size/small/'
         if page_num != 1:
@@ -57,12 +72,13 @@ def top_pages(time_period='', start_page=1, end_page=10):
         soup = BeautifulSoup(page.content,'html.parser')
         films_divs = soup.find_all(title=True)
         iter_range = range(len(films_divs))
-        chapter_titles = [films_divs[i]['title'] for i in iter_range]
-        titles += chapter_titles
-        chapter_hrefs = [films_divs[i]['href'] for i in iter_range]
-        hrefs += chapter_hrefs
-        chapter_tmdb_ids = [tmdb_id(films_divs[i]['title']) for i in iter_range]
-        tmdb_ids += chapter_tmdb_ids
-        chapter_ranks = [i+1+(page_num-1)*72 for i in iter_range]
-        ranks += chapter_ranks
-    return titles, ranks, hrefs, tmdb_ids
+        for i in iter_range:
+            film_div = films_divs[i]
+            title = film_div['title']
+            titles += title
+            hrefs += film_div['href']
+            tmdb_id_i = tmdb_id(title)
+            tmdb_ids += tmdb_id_i
+            film_meta += meta_soup(tmdb_id_i)
+            ranks += i+1+(page_num-1)*72
+    return titles, ranks, hrefs, tmdb_ids, film_meta
