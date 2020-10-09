@@ -75,10 +75,10 @@ def top_pages(time_period='', start_page=1, end_page=10):
         for i in iter_range:
             film_div = films_divs[i]
             title = film_div['title']
-            titles += title
-            hrefs += film_div['href']
+            titles.append(title)
+            hrefs.append(film_div['href'])
             tmdb_id_i = tmdb_id(title)
-            tmdb_ids += tmdb_id_i
-            film_meta += meta_soup(tmdb_id_i)
-            ranks += i+1+(page_num-1)*72
+            tmdb_ids.append(tmdb_id_i)
+            film_meta.append(meta_soup(tmdb_id_i))
+            ranks.append(i+1+(page_num-1)*72)
     return titles, ranks, hrefs, tmdb_ids, film_meta
