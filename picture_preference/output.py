@@ -43,9 +43,7 @@ def results():
             recs_tuple = list(zip(titles, posters))
             recs[i] = recs_tuple
         g.main_recs = recs["main"]
-        print(g.main_recs)
         g.obs_recs = recs["obscure"]
-        print(g.obs_recs)
     else:
         g.rank = None
         g.obscurity = "10"
