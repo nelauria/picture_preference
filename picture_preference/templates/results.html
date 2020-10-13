@@ -5,13 +5,6 @@
 {% endblock %}
 
 {% block content %}
-{% if g.mainstream %}
-<div class="mainstream">{{ g.main_ids }}</div>
-<hr/>
-{% endif %}
-{% if g.obscure %}
-<div class="obscure">{{ g.obs_ids }}</div>
-{% endif %}
 <h2>Popularity Stats:</h2>
 <div class="stats">
     <div class="rank">
@@ -32,6 +25,33 @@
 </div>
 
 <div class="easter-egg">{% include "easter_eggs.html" %}</div>
+
+{% if g.main_recs or g.obs_recs %}
+<div class="recommendations">
+    <h2>Recommendations:</h2>
+    {% if g.main_recs %}
+    <h3>Similar films that are more popular:</h3>
+    {% for rec in g.main_recs %}
+    <div class="list-item">
+        <img class="poster" src="{{ rec[1] }}"/>
+        <p class="title"><i>{{ rec[0][:-7] }}</i> {{ rec[0][-6:] }}</p>
+    </div>
+    {% if not loop.last %}<hr/>{% endif %}
+    {% endfor %}
+    {% endif %}
+    {% if g.obs_recs %}
+    <h3>Similar films that are more obscure:</h3>
+    {% for rec in g.obs_recs %}
+    <div class="list-item">
+        <img class="poster" src="{{ rec[1] }}"/>
+        <p class="title"><i>{{ rec[0][:-7] }}</i> {{ rec[0][-6:] }}</p>
+    </div>
+    {% if not loop.last %}<hr/>{% endif %}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endif %}
+
 {% if (not g.film) and (g.title != "Cool as Ice (1991)") %}
 <p class="congrats">Congratulations, you found a film that's more obscure than the 9,000 films in this website's
     database! Do you feel all artsy and hipster?</p>

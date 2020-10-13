@@ -11,11 +11,9 @@ def tmdb_id(title_year):
     title = title.replace(" ", "%20").replace("#", "%23")
     try:
         year = int(title_year[-5:-1])
+        search_url = search_url+f"&query={title}&page=1&include_adult=false&year={year}"
     except ValueError:
         year = None
-    if year:
-        search_url = search_url + f"&query={title}&page=1&include_adult=false&year={year}"
-    else:
         title = title_year
         title = title.replace(" ", "%20").replace("#", "%23")
         search_url = search_url+f"&query={title}&page=1&include_adult=false"
@@ -67,7 +65,7 @@ def meta_soup(film_id, medium):
                 range(len(details["credits"]["cast"]))
             ]
         directors = [i["name"].replace(" ", "").lower() for i in details["credits"]["crew"] if i["job"] == "Director"]
-        metadata = genres + keywords + cast + directors
+        metadata = genres + keywords + keywords + cast + directors + directors + directors
         soup = " ".join(metadata)
     return soup
 

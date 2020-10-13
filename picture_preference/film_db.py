@@ -1,7 +1,11 @@
 from picture_preference import web_scrape
-from flask_sqlalchemy import SQLAlchemy, event
+from flask_sqlalchemy import SQLAlchemy
 from flask import current_app
 import time
+import math
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 db = SQLAlchemy()
 
@@ -47,3 +51,43 @@ def build_top(*args, **kwargs):
     time_end = time.time()
     print(f"Top {72*(chapters*chapter_length)} films initialized.")
     print(f"Time: {time_end-time_start}")
+
+
+def recommend(film):
+    popularity = math.exp(-(film.rank - 1) / 2000)
+    obscurity = (1 - popularity) * 10
+    if obscurity >= 1:
+        min_rank = 1 - 2000 * math.log(1 - (obscurity - 0.8) / 10)
+        min_rank = math.floor(min_rank)
+        mainstream = FilmModel.query.filter(
+            FilmModel.rank.between(min_rank, film.rank)
+        ).all()
+        main_soup = {i.tmdb_id: i.film_meta for i in mainstream}
+    else:
+        main_soup = None
+    if obscurity <= 8.7:
+        max_rank = 1 - 2000 * math.log(1 - (obscurity + 0.8) / 10)
+        max_rank = math.floor(max_rank)
+        obscure = FilmModel.query.filter(
+            FilmModel.rank.between(film.rank, max_rank)
+        ).all()
+        obs_soup = {i.tmdb_id: i.film_meta for i in obscure}
+    else:
+        obs_soup = None
+    recs = {"main": None, "obscure": None}
+    for i in list(recs.keys()):
+        if i == "main":
+            soup = main_soup
+        elif i == "obscure":
+            soup = obs_soup
+        else:
+            raise Exception("SoupError")
+        if not soup:
+            continue
+        count = CountVectorizer(stop_words="english")
+        count_matrix = count.fit_transform(list(soup.values()))
+        cosine_sim = cosine_similarity(count_matrix)
+        sims = cosine_sim[0]
+        sim_inds = np.argpartition(sims, -3)[-3:-1]
+        recs[i] = [list(soup.keys())[ind] for ind in sim_inds]
+    return recs, obscurity

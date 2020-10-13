@@ -83,6 +83,17 @@ nav h1 { font-size: 2rem; flex: auto; margin: 0; text-align: center; }
 .easter-egg-text {
     font-size: 0.75rem; display: block; margin: auto; width: 80%; text-align: center; margin-top: 0.5rem;
 }
+.recommendations h2 { margin-top: 1.5rem; }
+.recommendations h3 { font-size: 1rem; }
+.recs-list { display: inline-block; }
+.title {
+    padding: 0.75vw 0.75vw; color: inherit; font-size: 1.25rem; display: inline-block; vertical-align: middle;
+    overflow-wrap: normal; white-space: normal; text-align: left; margin-top: 0; width: 65vw; height: auto;
+}
+.poster {
+    display: inline-block; width: 18vw; height: 27vw; margin: 0 1vw 0 2vw; vertical-align: middle; padding: 0;
+    background-size: 100%; border: none;
+}
 
 #dev-statement { font-size: 1rem; }
 

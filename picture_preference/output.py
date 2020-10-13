@@ -1,8 +1,7 @@
 from flask import (
-    Blueprint, g, render_template, session
+    Blueprint, g, render_template, session, current_app
 )
-from .film_db import FilmModel
-import math
+from .film_db import FilmModel, recommend
 # from .easter_eggs import easter_eggs
 
 bp = Blueprint('output', __name__)
@@ -17,24 +16,36 @@ def results():
         FilmModel.title == g.title
     ).first() #change this to all when addressing duplicate films
     if g.film:
+        import requests
         g.rank = f"#{g.film.rank}"
-        g.popularity = math.exp(-(g.film.rank - 1) / 2000)
-        g.obscurity = (1 - g.popularity) * 10
-        if g.obscurity >= 0.75:
-            min_rank = 1 - 2000 * math.log(1 - (g.obscurity - 0.5) / 10)
-            min_rank = math.floor(min_rank)
-            g.mainstream = FilmModel.query.filter(
-                FilmModel.rank.between(min_rank, g.film.rank)
-            ).all()
-            g.main_ids = [i.tmdb_id for i in g.mainstream]
-        if g.obscurity <= 9.0:
-            max_rank = 1 - 2000 * math.log(1 - (g.obscurity + 0.5) / 10)
-            max_rank = math.floor(max_rank)
-            g.obscure = FilmModel.query.filter(
-                FilmModel.rank.between(g.film.rank, max_rank)
-            ).all()
-            g.obs_ids = [i.tmdb_id for i in g.obscure]
+        recs, g.obscurity = recommend(g.film)
         g.obscurity = "%.2g" % g.obscurity
+        for i in ["main", "obscure"]:
+            titles = []
+            posters = []
+            if not recs[i]:
+                continue
+            for tmdb_id in recs[i]:
+                details_url = f"https://api.themoviedb.org/3/movie/{tmdb_id}?api_key={current_app.config['TMDB_KEY']}&language=en-US"
+                response = requests.get(details_url)
+                details = response.json()
+                title_year = details["title"] + f" ({details['release_date'][0:4]})"
+                titles.append(title_year)
+                img_url = "https://image.tmdb.org/t/p/w92/"
+                try:
+                    poster_path = img_url + details["poster_path"]
+                except KeyError:
+                    details_url = details_url.replace("/movie/", "/tv/")
+                    response = requests.get(details_url)
+                    details = response.json()
+                    poster_path = img_url + details["poster_path"]
+                posters.append(poster_path)
+            recs_tuple = list(zip(titles, posters))
+            recs[i] = recs_tuple
+        g.main_recs = recs["main"]
+        print(g.main_recs)
+        g.obs_recs = recs["obscure"]
+        print(g.obs_recs)
     else:
         g.rank = None
         g.obscurity = "10"
