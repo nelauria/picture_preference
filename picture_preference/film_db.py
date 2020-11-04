@@ -57,7 +57,7 @@ def recommend(film):
     popularity = math.exp(-(film.rank - 1) / 2000)
     obscurity = (1 - popularity) * 10
     if obscurity >= 1:
-        min_rank = 1 - 2000 * math.log(1 - (obscurity - 0.8) / 10)
+        min_rank = 1 - 2000 * math.log(1 - (obscurity - 0.95) / 10)
         min_rank = math.floor(min_rank)
         mainstream = FilmModel.query.filter(
             FilmModel.rank.between(min_rank, film.rank)
@@ -66,7 +66,7 @@ def recommend(film):
     else:
         main_soup = None
     if obscurity <= 8.7:
-        max_rank = 1 - 2000 * math.log(1 - (obscurity + 0.8) / 10)
+        max_rank = 1 - 2000 * math.log(1 - (obscurity + 0.95) / 10)
         max_rank = math.floor(max_rank)
         obscure = FilmModel.query.filter(
             FilmModel.rank.between(film.rank, max_rank)
@@ -88,6 +88,8 @@ def recommend(film):
         count_matrix = count.fit_transform(list(soup.values()))
         cosine_sim = cosine_similarity(count_matrix)
         sims = cosine_sim[0]
+        # print(sims)
         sim_inds = np.argpartition(sims, -3)[-3:-1]
-        recs[i] = [list(soup.keys())[ind] for ind in sim_inds]
+        recs[i] = [list(soup.keys())[ind] for ind in sim_inds if (sims[ind] > 0.2)]
+        # print(sims[sim_inds])
     return recs, obscurity

@@ -65,7 +65,7 @@ def meta_soup(film_id, medium):
                 range(len(details["credits"]["cast"]))
             ]
         directors = [i["name"].replace(" ", "").lower() for i in details["credits"]["crew"] if i["job"] == "Director"]
-        metadata = genres + keywords + keywords + cast + directors + directors + directors
+        metadata = genres + genres + keywords + keywords + keywords + cast + directors + directors
         soup = " ".join(metadata)
     return soup
 
