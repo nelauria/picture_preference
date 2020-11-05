@@ -6,7 +6,7 @@ import requests
 def tmdb_id(title_year):
     api_key = current_app.config["TMDB_KEY"]
     search_url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&language=en-US"
-    # print(title_year)
+    print(title_year)
     title = title_year[:-7]
     title = title.replace(" ", "%20").replace("#", "%23")
     try:
@@ -46,7 +46,7 @@ def tmdb_id(title_year):
 
 
 def meta_soup(film_id, medium):
-    soup = None
+    soup = "none"
     if medium:
         api_key = current_app.config["TMDB_KEY"]
         details_url = f"https://api.themoviedb.org/3/{medium}/{film_id}?api_key={api_key}&language=en-US&append_to_response=keywords,credits"
