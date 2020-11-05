@@ -57,15 +57,15 @@ def meta_soup(film_id, medium):
             keywords = [i["name"].replace(" ", "").lower() for i in details["keywords"]["keywords"]]
         elif medium == "tv":
             keywords = [i["name"].replace(" ", "").lower() for i in details["keywords"]["results"]]
-        if len(details["credits"]["cast"]) >= 3:
-            cast = [details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in range(0,3)]
-        else:
-            cast = [
-                details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in
-                range(len(details["credits"]["cast"]))
-            ]
+        # if len(details["credits"]["cast"]) >= 3:
+        #     cast = [details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in range(0,3)]
+        # else:
+        #     cast = [
+        #         details["credits"]["cast"][i]["name"].replace(" ", "").lower() for i in
+        #         range(len(details["credits"]["cast"]))
+        #     ]
         directors = [i["name"].replace(" ", "").lower() for i in details["credits"]["crew"] if i["job"] == "Director"]
-        metadata = genres + genres + keywords + keywords + keywords + cast + directors + directors
+        metadata = genres + genres + keywords + directors + directors
         soup = " ".join(metadata)
     return soup
 
