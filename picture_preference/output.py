@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, g, render_template, session, current_app
+    Blueprint, g, render_template, session, current_app, url_for
 )
 from .film_db import FilmModel, recommend
 # from .easter_eggs import easter_eggs
@@ -39,6 +39,8 @@ def results():
                     response = requests.get(details_url)
                     details = response.json()
                     poster_path = img_url + details["poster_path"]
+                except TypeError:
+                    poster_path = url_for('static', filename="photo-placeholder-icon-17.jpg")
                 posters.append(poster_path)
             recs_tuple = list(zip(titles, posters))
             recs[i] = recs_tuple
